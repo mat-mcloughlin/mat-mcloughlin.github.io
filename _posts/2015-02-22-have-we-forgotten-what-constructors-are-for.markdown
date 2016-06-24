@@ -60,7 +60,7 @@ Now you can no longer create a vehicle without a valid colour or registration. T
 {% highlight csharp %}
 public void Insert(Vehicle vehicle)
 {
-	if (!CheckVehicleIsValid(vehicle) 
+    if !CheckVehicleIsValid(vehicle) 
     {
     	return;
     }
