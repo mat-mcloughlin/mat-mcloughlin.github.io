@@ -1,0 +1,26 @@
+---
+layout: post
+title: Talks
+date: '2014-04-26 15:23:26'
+---
+
+Here is a list of where I've been and going to be:
+
+- 26/09/2013 - [Leeds Sharp](http://www.leeds-sharp.org/events/2013/8) - Leeds, UK
+- 04/12/2013 - [NDC London](http://ndc-london.com/) - London, UK
+- 12/12/2013 - [Shropshire DevNet](http://www.shropshiredev.net/post/Thursday-12th-December-ASPNET-youre-doing-it-wrong-An-Introduction-to-Nancy.aspx) - Telford, UK
+- 17/05/2014 - [DDD South West](http://www.dddsouthwest.com/) - Bristol, UK
+- 02/06/2014 - [NDC Oslo](http://www.ndcoslo.com/) - Oslo, Norway
+- 18/06/2014 - DareDevs - Manchester, UK
+- 09/12/2014 - [Agile Yorkshire](http://www.agileyorkshire.org/meetings/amazingeveningoffestivelightningtalks/) - Leeds, UK
+- 29/01/2015 - [Leeds Sharp](http://www.meetup.com/Leeds-Sharp/events/218944884/) - Leeds, UK
+- 14/04/2015 - [DotNetFringe](http://dotnetfringe.o[]rg/) - Portland, USA
+- 17/06/2015 - [NDC Oslo](http://www.ndcoslo.com/) - Oslo, Norway
+- 18/09/2015 - [DevDay](http://devday.pl/) - Krakow, Poland
+- 26/09/2015 - [DDDEA](http://www.dddeastanglia.com/) - Cambridge, UK
+- 11/01/2016 - [NDC London](http://ndc-london.com/) - London, UK
+- 21/04/2016 - [Shropshire Devs](https://www.eventbrite.co.uk/e/escaping-the-big-ball-of-mud-tickets-22831310063?ref=ssdevs) - Telford, UK
+- 26/05/2016 - [DevSum](http://www.devsum.se/) - Stockholm, Sweden
+- 06/06/2016 - [NDC Oslo](http://ndcoslo.com/) - Oslo, Norway
+
+If you're interested in having me speak at your user-group feel free to drop me a message on [twitter](https://twitter.com/mat_mcloughlin).
