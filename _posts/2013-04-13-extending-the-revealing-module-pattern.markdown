@@ -13,7 +13,7 @@ Most people working with javascript should be aware of the revealing module patt
 
 However one thing I've found is it can be tricky to deal with 'this' when things get complicated. For example, in the code below you have to use call to set the value variable.
 
-{% hightlight javascript %}
+{% highlight javascript %}
 var myConstructor = function(){
 	
   var foo = function(){
