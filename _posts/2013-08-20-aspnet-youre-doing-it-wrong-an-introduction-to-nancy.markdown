@@ -31,59 +31,59 @@ Then go ahead and delete any pre-generated content. You should end up with a pro
 
 Finally open up the package manager console and install the Nancy hosting nuget package
 
-```language-csharp
+{% highlight csharp %}
 PM> Install-Package Nancy.Hosting.Aspnet
-```
+{% endhighlight %}
 
 Nancy also allows you to host on other [environments](http://www.nuget.org/packages?q=nancy.hosting) such as OWIN and as such actually has no dependencies on ASP.NET. But for this example will stick to ASP hosting.
 
 Now that Nancy is installed we can create our first module. The Nancy website defines a module as "the way of defining the behaviours of your application", which they are. But for the sake of this article and the fact that most of you are probably coming from ASP.NET MVC it's comparable to a controller. They are easy to create and don't force any folder structure or naming convention on you. They just have to inherit from the `NancyModule` class. This means you're free to organise the project as you see fit. So lets create our first one:
 
-```language-csharp
+{% highlight csharp %}
 // Note: There is no requirement to suffix your class name with Module, I just like it.
 public class TurtleModule : NancyModule
 {
     public TurtleModule() { }
 }
-```
+{% endhighlight %}
     
 The next thing we need are routes and this is where it gets a little trickier to explain. The `NancyModule` class has a series of property indexers for each of the http verbs that is of type `Func<dyanmic, dynamic>`. Where the `dynamic` that gets passed in contains any route arguments (I'll show that later). If indexers are new to you (and they were to me) then take a look at the [msdn article](http://msdn.microsoft.com/en-us/library/aa288465.aspx), it's got a pretty good explanation. 
 
 To create a `GET` route you need to define it in the constructor:
 
-```language-csharp
+{% highlight csharp %}
 // Note: arguments can be named anything.
 Get["/turtle"] = arguments => 
 {
     return "Teenage Mutant Ninja Turtles";
 };
-```
+{% endhighlight %}
     
 Mind, blown right? I really like the way that Nancy writes. I think it's very clean and elegant. I like the way each route is defined explicitly, in the module, as oppose to the crazy "Which route is it picking?" method of ASP.NET MVC.
 
 As for specifying route arguments that's pretty simple too. There are a number of options from simple pattern matching right through to more complex regular expressions. These are all explained on the [website](https://github.com/NancyFx/Nancy/wiki/Defining-routes#pattern) but for my example I'm just going to use a simple pattern match:
 
-```language-csharp
+{% highlight csharp %}
 Get["/turtle/{name}"] = arguments => 
 {
     // Note: the arguments are case insensitve. arguments.name is also fine.
     return "Hello" + arguments.Name;
 };
-```
+{% endhighlight %}
 
 Defining a `POST` or `PUT` request is exactly the same. The post form is available in the Request property on the NancyModule or you can get it the easy way buy accessing it via model binding (It really is this simple):
 
-```language-csharp
+{% highlight csharp %}
 Post["/turtle"] = arguments => 
 {
     var model = this.Bind<Turtle>();
     return model.MaskColour;
 };
-```
+{% endhighlight %}
     
 And finally, as an added bonus, instead of defining your routes route on each of the verb methods you can set it by passing it into the base constructor:
 
-```language-csharp
+{% highlight csharp %}
 public class TurtleModule : NancyModule
 {
     public TurtleModule() : base("/turtle")
@@ -94,7 +94,7 @@ public class TurtleModule : NancyModule
         };
     }
 }
-```
+{% endhighlight %}
     
 That is really all there is to it. There's plenty more you can do within a module, such as extending it with validation or authentication but I'll cover that in later posts. 
 

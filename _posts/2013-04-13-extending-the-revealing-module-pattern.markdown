@@ -13,7 +13,7 @@ Most people working with javascript should be aware of the revealing module patt
 
 However one thing I've found is it can be tricky to deal with 'this' when things get complicated. For example, in the code below you have to use call to set the value variable.
 
-```language-javascript
+{% hightlight javascript %}
 var myConstructor = function(){
 	
   var foo = function(){
@@ -34,11 +34,11 @@ var obj = new myConstructor();
 alert(obj.value); // value = 1
 obj.foo();
 alert(obj.value); // value = 2
-```
+{% endhighlight %} 
 
 This becomes even more of a pain when you start with callbacks. So to get round the problem. Is it not better to do this?
 
-```language-javascript
+{% highlight javascript %}
 var myConstructor = function(){
   var self = this;
 	
@@ -60,7 +60,7 @@ var obj = new myConstructor();
 alert(obj.value); // value = 1
 obj.foo();
 alert(obj.value); // value = 2
-```
+{% endhighlight %}
 
 That way you'll always have access to the object, no matter how far down your function calls go. I know its a requirement on JQuery but it all seems to work fine.
 

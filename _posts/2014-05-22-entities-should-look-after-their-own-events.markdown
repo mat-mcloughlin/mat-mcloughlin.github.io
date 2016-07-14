@@ -25,7 +25,7 @@ At a glance this comment seems to suggest that all your methods for mutating the
 
 So lets see how that would look. In my example I've got a site with a collection of accounts that can be activated (I'm using [CommonDomain]()):
 
-```language-csharp
+{% highlight csharp %}
 public class Site : AggregateBase
 {
 	private Guid id;
@@ -63,7 +63,7 @@ public class Account
 
 	public bool Activated { get; set; }	
 }
-```
+{% endhighlight %}
 
 Now this is only a very simplistic example so it doesn't look so bad. But imagine if there was some complicated logic around setting an account active. Also imagine if the aggregate root was more realisticly complicated. I also don't like the fact that Activated is a public property on the `Acccount` object. This would soon become too much to handle. 
 
@@ -75,7 +75,7 @@ You see there are a couple of problems with doing this. Firstly you need access 
 
 This is the solution we came up with:
 
-```language-csharp
+{% highlight csharp %}
 public class Site : AggregateBase
 {
 	private Guid id;
@@ -129,7 +129,7 @@ public class Account
         this.activated = true;
     }
 }
-```
+{% endhighlight %}
 
 If you look at the constructor of the `Account` class it now accepts an action so that you can pass the `RaiseEvent()` method in. It is now also responsible for applying its own events (albeit via a proxy apply method on the AR). 
 

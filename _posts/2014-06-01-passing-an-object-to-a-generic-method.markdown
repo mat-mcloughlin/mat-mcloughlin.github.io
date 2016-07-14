@@ -10,20 +10,20 @@ There's nothing complicated about this. But for some reason the solution escaped
 
 Imagine you want to invoke a method defined as below: 
 
-```language-csharp
+{% highlight csharp %}
 public void Execute<T> Generic(T foo) where T : class 
 {
 	var bar = new SomethingElse<T>(foo);
     
     ....
 }
-```
+{% endhighlight %}
 
 Except you don't know the object type at compile time:
 
-```language-csharp
+{% highlight csharp %}
 object somethingToPassIn = GetSomething();
-```
+{% endhighlight %}
 
 Perhaps you've done some serialisation from a http request. This means that `T` will be `object` instead of an explicit type. 
 
@@ -31,7 +31,7 @@ So how do you get around this?
 
 Well, you use reflection. The basic principle is to create an additional, non-generic method, that accepts an object and then use reflection to call the generic method. Like this:
 
-```language-csharp
+{% highlight csharp %}
 public FooClass()
 {
     this.genericMethod = typeof(FooClass)
@@ -44,7 +44,7 @@ public void NonGeneric(object foo)
             .MakeGenericMethod(command.GetType())
             .Invoke(this, new[] {foo});
 }
-```
+{% endhighlight %}
 
 You notice that we get hold of the `MethodInfo` as part of the constructor so that we don't need to do it every time the non-generic method is called. 
 

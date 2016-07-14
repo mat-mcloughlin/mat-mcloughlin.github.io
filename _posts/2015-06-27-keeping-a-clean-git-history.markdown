@@ -28,7 +28,7 @@ So what can you do about it? Here are 3 simple things I do on a day to day basis
 ## Squash your commits in to logical chunks
 It’s ok to commit as you go when writing some new functionality. Infact its important. But it doesn’t mean you need to push all those commits individually. Take a look at the following commits for example:
 
-```language-markup
+{% highlight powershell %}
 Author: super-villan <super.villan@gmail.com>
 Date:   Fri Jun 26 08:27:44 2015 +0100
 
@@ -51,24 +51,24 @@ Author: super-villan <super.villan@gmail.com>
 Date:   Fri Jun 26 08:25:35 2015 +0100
 
     Starting to write hackerz code
-```
+{% endhighlight %}
 
 These are probably useful to you whilst you are developing the code. To somebody else, in 6 months time, it would be clearer if it was just one commit for the entire feature. 
 
 So before you push to remote why not squash all these commits into one. It’s pretty simple to do:
 
-```language-markup
+{% highlight powershell %}
 > git rebase -i HEAD~4 
-```
+{% endhighlight %}
 
 This will bring up your commit message editor and allow you to squash all the commits into one. Giving them a new commit message:
 
-```language-markup
+{% highlight powershell %}
 Author: super-villan <super.villan@gmail.com>
 Date:   Fri Jun 26 08:27:44 2015 +0100
 
     Implemented the new hackerz code to add a nyan cat 
-```
+{% endhighlight %}
 
 It’s not always a good idea, but it does give you opportunity to clean up your history for the benefit of others.
 
@@ -79,15 +79,15 @@ See that tweet above? These are what’s known as merge bubbles. These happen wh
 
 Instead of running the command:
 
-```language-markup
+{% highlight powershell %}
 > git pull origin master
-```
+{% endhighlight %}
 
 Just add the rebase argument:
 
-```language-markup
+{% highlight powershell %}
 > git pull —rebase origin master
-```
+{% endhighlight %}
 
 And this will change how the merge works. Rather than taking your code and the remote code, merging them and producing a new commit. It will instead stash all of your local commits, pull down any new, and then attempt to replay your commits on top of the new code.
 
@@ -96,18 +96,18 @@ This will remove the merge bubble (Which if your git history is anything like mi
 ## Be sensible with your commit messages
 Don’t just write a one line header saying:
 
-```language-markup
+{% highlight powershell %}
 Fixed a bug in user code
-```
+{% endhighlight %}
 
 That’s not going to be useful to anybody. Try to give a description of what the bug was, how you fixed it and any decisions/assumptions you made. Git gives you a title line and a comments section to work with so you can be as verbose as you like. If possible try and include a case number as well, linking it back to JIRA or whatever bug tracking tool you use: 
 
-```language-markup
+{% highlight powershell %}
 Case 345: Fixed n + 1 code when retrieving user information
 
 Entity framework lazy loading was yet again causing a inefficiency when retrieving the user data. Fixed the query 
 and removed the virtual keyword to prevent this happening again
-```
+{% endhighlight %}
 
 You’ll also find if you write messages like this within your commits you don’t need to decorate your code with these comments (comments in code are bad ಠ_ಠ). And the great thing about this is that commit messages are transient. So unlike comments in code they can never be out of date as they were true for a given point in time.
 

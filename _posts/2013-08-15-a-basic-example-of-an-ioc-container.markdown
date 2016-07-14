@@ -20,31 +20,31 @@ And thats pretty much it. Sure, there are lots of additional functionality in mo
 
 So to the code. The first thing I needed to do was allow you to store the bindings. I decided to store them in a dictionary of type:
 
-```language-csharp
+{% highlight csharp %}
 private readonly Dictionary<Type, Func<object>> _providers;
-```
+{% endhighlight %}
 
 So that the concrete implementation wouldn't get created until it was called for. Along with the following method to add to it
 
-```language-csharp
+{% highlight csharp %}
 public void Bind<TInterface, TConcrete>() where TConcrete : TInterface
 {
     _providers[typeof(TInterface)] = () => Resolve(typeof(TConcrete));
 }
-```
+{% endhighlight %}
     
 This allows you to pass in a interface and concrete class that inherits that interface like so:
 
-```language-csharp
+{% highlight csharp %}
 var container = new Container();
 container.Bind<ICar, Car>();
-```
+{% endhighlight %}
 
 where car is:
 
-```language-csharp
+{% highlight csharp %}
 class Car : ICar { }
-```
+{% endhighlight %}
 
 That bit is simple. The next stage is to be able to resolve that type when it is called for. That means
 
@@ -55,7 +55,7 @@ That bit is simple. The next stage is to be able to resolve that type when it is
 
 The resulting method is below. It could be shortend with linq and there is no error checking, however:
 
-```language-csharp
+{% highlight csharp %}
 private object Resolve(Type type)
 {
     var constructor = type.GetConstructors().SingleOrDefault();
@@ -69,21 +69,21 @@ private object Resolve(Type type)
 
     return constructor.Invoke(parameters.ToArray());
 }
-```
+{% endhighlight %}
 
 Finally a public method to allow you to resolve:
 
-```language-csharp
+{% highlight csharp %}
 public T Resolve<T>()
 {
     return (T)_providers[typeof(T)]();
 }
-```
+{% endhighlight %}
 
 That is called as such:
 
-```language-csharp
+{% highlight csharp %}
 var car = container.Resolve<ICar>();
-```
+{% endhighlight %}
 
 And thats it. For a complete example see this [gist](https://gist.github.com/mat-mcloughlin/6240821). Like I said, there's a lot more involved in IoC containers such as [Ninject](http://www.ninject.org/) and [TinyIoC](https://github.com/grumpydev/TinyIoC) (my favourite of the moment) but the basic principle is pretty simple.

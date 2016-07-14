@@ -25,15 +25,15 @@ remote: npm ERR! Error: SELF_SIGNED_CERT_IN_CHAIN
 
 [This](http://blog.npmjs.org/post/78085451721/npms-self-signed-certificate-is-no-more) post explains the fix that is required. It's something that the guys at azure are going to have to sort. But in the mean time you can add this line to you `deploy.cmd` located in `/site/deployments/tools`
 
-```language-markup
+{% highlight powershell %}
 call :ExecuteCmd !NPM_CMD! config set ca=""
-``` 
+{% endhighlight %} 
 
 before the line
 
-```language-markup
+{% highlight powershell %}
 call :ExecuteCmd !NPM_CMD! install --production
-```
+{% endhighlight %}
 
 I imagine there is a better fix for this coming soon.
 
@@ -56,23 +56,23 @@ Creating a theme in Ghost is really easy. The instructions are [here](http://doc
 
 Although the documentation for creating themes is good it doesn't mention enough about pagination so I'll leave this snippet here as help
 
-```language-markup
+{% highlight powershell %}
 #123;#123;#if pagination.next#125;
 	<a class="prev" href="/page/#123;#123;pagination.next#125;#125;" style="float:left;">Older Posts</a>
 #123;#123;/if#125;#125;
 #123;#123;#if pagination.prev#125;#125;
 	<a class="next" href="/page/#123;#123;pagination.prev#125;#125;" style="float:right;">Newer Posts</a>
 #123;#123;/if#125;#125;
-```
+{% endhighlight %}
 
 ##5. Importing all my posts
 I don't have lots of posts but I certainly didn't want to copy paste them all in. There is a ghost exporter/importer available for wordpress but not for Jekyll. Instead, there is this [script](https://github.com/redwallhp/Jekyll-to-Ghost). I had to make some modifications to get it to work with my build but it's a good start.
 
 The import functionality for Ghost is located at
 
-```language-markup
+{% highlight powershell %}
 <your url>/ghost/debug/
-```
+{% endhighlight %}
 
 I had to fix up some bugs in my post afterwards but it wasn't too bad.
 
@@ -81,15 +81,15 @@ Instructions for setting up a custom domain for Azure are located [here](http://
 
 Last bit. I wanted to make sure none of my links were broken. Because Jekyll is static all of the post URL's ended in .html. For example 
 
-```language-markup
+{% highlight powershell %}
 http://mat-mcloughlin.net/2013/08/20/aspnet-youre-doing-it-wrong-an-introduction-to-nancy.html
-```
+{% endhighlight %}
 
 By default Ghost has a url's like:
 
-```language-markup
+{% highlight powershell %}
 http://mat-mcloughlin.net/aspnet-youre-doing-it-wrong-an-introduction-to-nancy
-```
+{% endhighlight %}
 
 The first step is to get Ghost to add the date to the URL. This is a checkbox on the ghost settings page:
 
@@ -97,26 +97,26 @@ The first step is to get Ghost to add the date to the URL. This is a checkbox on
 
 That changes the URL to:
 
-```language-markup
+{% highlight powershell %}
 http://mat-mcloughlin.net/2013/08/20/aspnet-youre-doing-it-wrong-an-introduction-to-nancy
-```
+{% endhighlight %}
 
 Then you need to set up some rewrite rules to get any requests to `.html` to redirect to the same url but without the `.html`. This can be achieved by adding this rule to the `web.config` in the root of your website:
 
-```language-markup
+{% highlight powershell %}
 <rule name="extensionless" stopProcessing="true">
 	<match url="(.*)\.html/$" />
     <action type="Redirect" url="#123;ToLower:#123;R:1#125;#125;" redirectType="Permanent" />
 </rule>
-```
+{% endhighlight %}
 
 Lastly you may need to do the same for you RSS feed:
 
-```language-markup
+{% highlight powershell %}
 <rule name="rss" stopProcessing="true">
     <match url="rss.xml" />
     <action type="Redirect" url="rss" redirectType="Permanent" />
 </rule>
-```
+{% endhighlight %}
 
 And that's all I know. It was pretty painless and now I can blog from where I like!

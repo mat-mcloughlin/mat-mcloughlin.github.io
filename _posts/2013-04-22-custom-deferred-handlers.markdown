@@ -9,7 +9,7 @@ tags:
 
 As the codebase at work gets bigger and bigger I've been trying to think of ways to simplify some of the simple create and update javascript functionality. Our application works by having a context that you can define a resource for then use to perform the CRUD functionality. For example:
 
-```language-javascript
+{% highlight javascript %}
 var fooContext = context.define('foo');
 
 var createButton = function() {
@@ -23,21 +23,21 @@ var updateButton = function() {
     // Something has been updated. Update message
   })
 };
-```
+{% endhighlight %}
 
 Now there are a lot of objects in our application so this code appears a lot. So I figured I could combine in it in a similar way to a common pattern on the server side:
 
-```language-javascript
+{% highlight javascript %}
 if (foo.id > 0) {
   // update
 } else {
   // create
 }
-```
+{% endhighlight %}
 
 But I also wanted to handle the response differently as well. Now as the astute of you have may noticed I'm using the JQuery $.Deferred functionality. So I thought I'd create two custom deferred handlers. One for created and one for updated, and this is how I did it:
 
-```language-javascript
+{% highlight javascript %}
 var save = function(item) {
   var isUpdate = false;
   var deferred;
@@ -66,11 +66,11 @@ var save = function(item) {
 
   return deferred;
 };
-```
+{% endhighlight %}
 
 In the example the update and create functions are both deferred as well. This now allows me to write the above code as:
 
-```language-javascript
+{% highlight javascript %}
 var fooContext = context.define('foo');
 
 var saveButton = function() {
@@ -80,4 +80,4 @@ var saveButton = function() {
     // Something has been updated. Update message
   });
 };
-```
+{% endhighlight %}

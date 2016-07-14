@@ -11,7 +11,7 @@ Had a discussion in [@jabbr](https://jabbr.net/) recently about different ways o
 
 ##1. Implementing the constructor as a function and all the prototype methods in one go:
 
-```language-javascript
+{% highlight javascript %}
 function MyObject(foo, bar) {
   this.foo = foo;
   this.bar = bar;
@@ -25,11 +25,11 @@ MyObject.prototype = {
   someOtherFunction: function() {
   }  
 };
-```
+{% endhighlight %}
 
 ##2. Implementing the constructor as a function and the prototype methods individually:
 
-```language-javascript
+{% highlight javascript %}
 function MyObject(foo, bar) {
   this.foo = foo;
   this.bar = bar;
@@ -41,11 +41,11 @@ MyObject.prototype.someFunction = function(){
 
 MyObject.prototype.someOtherFunction = function(){
 };
-```
+{% endhighlight %}
 
 ##3. Enclosing all methods within a function and returning the constructor:
 
-```language-javascript
+{% highlight javascript %}
 var MyObject = (function(){
   var EXAMPLE_CONSTANT = 4;
 
@@ -63,7 +63,7 @@ var MyObject = (function(){
 	
   return constructor;
 })();
-```
+{% endhighlight %}
 
 I like the final method best it encapsulates all the prototype methods and allows you to have private constants (as shown in the example).
 
@@ -75,8 +75,8 @@ Couple of things to bear in mind when using these methods:
 
 If you want to be extra careful and make sure that the new keyword is used you can check this is an instance of the constructor:
 
-```language-javascript
+{% highlight javascript %}
 if (!(this instanceof Constructor)){
   console.log('throw some kind of error');
 }
-```
+{% endhighlight %}

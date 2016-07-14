@@ -11,9 +11,9 @@ A couple of people have been after this for a while so I thought I would impleme
 
 The format for the constraints has been copied from the recent WebAPI release. Its really easy to use. All you have to do is define the parameter name and the constraint as part of the route. For example:
 
-```language-csharp
+{% highlight csharp %}
 Get["/{name:string}"] = parameters => return parameters.Name + " is a string";
-```
+{% endhighlight %}
 
 This isn't in the prod version of Nancy yet but you can get hold of it in the [NancyFX bleeding edge builds](https://www.myget.org/gallery/nancyfx) nuget package
 
@@ -78,7 +78,7 @@ If you've looked at the WebAPI implementation of this you may have noticed there
 
 As an example to where this is useful. Imagine you want the same route to find a product, but you want to allow a user to use a product id or a product name. The following example will allow you to do that:
 
-```language-csharp
+{% highlight csharp %}
 public class ProductModule : NancyModule {
     public ProductModule(IProductRepository productRepository)
     { 
@@ -87,6 +87,6 @@ public class ProductModule : NancyModule {
         Get["/product/{id:int}"] = parameter => productRepository.GetProductById(parameter.Id);
     }
 } 
-```
+{% endhighlight %}
 
 I'll let you know when this comes out of beta.

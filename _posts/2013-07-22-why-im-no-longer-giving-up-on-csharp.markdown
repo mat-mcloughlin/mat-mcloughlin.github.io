@@ -15,7 +15,7 @@ I'm here to tell you there is another way, The non microsoft way (Sorry MS) ther
 ##[Nancy](http://nancyfx.org/)
 This is the one that changed it for me. Its a light weight web framework that is a great alternative to WebAPI an MVC.NET. [@grumpydev](https://twitter.com/Grumpydev) and [@thecodejunkie](https://twitter.com/TheCodeJunkie) who wrote it have the Super Duper Happy Path ethos and it really works. Everything in it is simple to set up. From forms authentication through to dependancy injection. And as strange as it may sound, the syntax is a pleasure to write for example:
 
-```language-csharp
+{% highlight csharp %}
 public class SampleModule : Nancy.NancyModule
 {
     public SampleModule()
@@ -23,7 +23,7 @@ public class SampleModule : Nancy.NancyModule
         Get["/"] = _ => "Hello World!";
     }
 }
-```
+{% endhighlight %}
 
 To setup a simple get request. Also, the [documentation](https://github.com/NancyFx/Nancy/wiki) is excellent.
 

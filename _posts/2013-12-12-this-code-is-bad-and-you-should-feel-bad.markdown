@@ -11,7 +11,7 @@ tags:
 
 Want to mark some code as bad in your code base? Somebody written some poor code and you want to point it out? Need to mark some code to be reviewed? Well this is the attribute for you!
 
-```language-csharp
+{% highlight csharp %}
 [AttributeUsage(System.AttributeTargets.All, AllowMultiple = true, Inherited = true)]
 public class ಠ_ಠAttribute : Attribute
 {
@@ -28,5 +28,5 @@ public class SomeClass
 {
  
 }
-```
+{% endhighlight %}
 This code was supplied to me by a [JabbR](https://jabbr.net/) friend called Ben Hyrmn (and I'd link him on twitter if he hadn't absconded!)

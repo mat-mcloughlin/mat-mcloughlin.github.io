@@ -13,9 +13,9 @@ Jekyll is a ruby application so thats your first problem. It requires you to ins
 
 To install chocolatey either go to their website or open up Command Prompt and type:
 
-```language-markup
+{% highlight powershell %}
 PS> @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin - See more at: http://chocolatey.org/#sthash.DiILbJrZ.dpuf
-```
+{% endhighlight %}
 
 Once this is done you can then go ahead and install [Ruby](http://chocolatey.org/packages/ruby) and the [DevKit](http://chocolatey.org/packages/ruby.devkit.ruby193). 
 
@@ -23,22 +23,22 @@ __You have to be careful at this point as Jekyll runs on version 1.9 NOT 2.0.__
 
 So go ahead and use `cinst`:
 
-```language-markup
+{% highlight powershell %}
 PS> cinst ruby -Version 1.9.3.44800
-```
+{% endhighlight %}
 
 And 
 
-```language-markup
+{% highlight powershell %}
 PS> cinst ruby.devkit.ruby193
-```
+{% endhighlight %}
 
 ## Part Two: Installing Python
 Why Python? You need it if you want to use [pygments](http://pygments.org/) which is the library Jekyll uses for syntax highlighting. Python 3.* can cause some problems with Jekyll so unless you planning on using it for anything else you're best sticking to 2.7. So again using `cinst`:
 
-```language-markup
+{% highlight powershell %}
 PS> cinst python -Version 2.7.5
-```
+{% endhighlight %}
 
 Next you need to add python to your `PATH` enviroment variable:
 
@@ -54,9 +54,9 @@ Click on "Enviroment Variables..." (Why the Ellipsis?)
 
 Then you need to add the path that you installed Python to, to the Path variable. Most likely, if you used Chocolatey, this will mean adding
 
-```language-markup
+{% highlight powershell %}
 ;C:\python27;
-```
+{% endhighlight %}
 
 __Make sure your variables are delimited by a semi-colon.__
 
@@ -67,21 +67,21 @@ __Make sure to close all instances of Command Prompt (or Powershell) and reopen 
 ## Part Three: Installing Jekyll
 Now we are already to go-ahead and install Jekyll:
 
-```language-markup
+{% highlight powershell %}
 PS> gem install jekyll
-```
+{% endhighlight %}
 
 This will install Jekyll and all its dependencies. At this point it may work for you, however for me I still had problems with the `pygments.rb` gem. At the time I wrote this it didn't work for me. At the time of writing it was at version 0.5.3.
 
 __If at this point Jekyll still doesn't work it you may need to revert to pygments.rb version 0.5.0. To do this__
 
-```language-markup
+{% highlight powershell %}
 PS> gem uinstall pygments -v 0.5.3
-```
+{% endhighlight %}
 
-```language-markup
+{% highlight powershell %}
 PS> gem install pygments -v 0.5.0
-```
+{% endhighlight %}
 
 ## Part Four: Create your Blog
 For this section I'm going to refer you to the [official site](http://jekyllrb.com/). Come back when you're done.
@@ -93,10 +93,10 @@ GitHub allow you to host a website in one of your repositories at the URL `usern
 
 __Your blog should have a .gitignore file in the root of your blog that contains the following__
 
-```language-markup
+{% highlight powershell %}
 _site/
 serve/
-```
+{% endhighlight %}
 
 However, after you've been playing with Jekyll for a while, you probably want to install some plugins. This is where GitHub falls down. It runs Jekyll in safe mode so it will ignore any plugins you install. So you're going to have to start generating the site locally and pushing the compiled site to GitHub. I'm sure there a a couple of ways to do this, but here is my way.
 
@@ -110,7 +110,7 @@ And set it as your default branch. This is so when somebody comes to your git re
 
 Then create a new file in the route of your blog and call it rake.rb and add the following code:
 
-```language-ruby
+{% highlight ruby %}
 require 'rubygems'
 require 'jekyll'
 require 'tmpdir'
@@ -137,19 +137,19 @@ task :publish => [:generate] do
   system "git push origin master --force"
   rm_rf TEMP_DIRECTORY
 end
-```
+{% endhighlight %}
 
 This Ruby is a ruby rake file, if you want to learn more about it checkout this site. It will give you two commands that you can run from the root of you blog
 
-```language-markup
+{% highlight powershell %}
 PS> rake generate
-```
+{% endhighlight %}
 
 That will generate the site and 
 
-```language-markup
+{% highlight powershell %}
 PS> rake publish
-```
+{% endhighlight %}
 
 That will generate your site (locally) and copy it into a temporay location (I usually put it in `C:\temp\generate_blog`) and push it to the master branch of your git repository.
 

@@ -8,7 +8,7 @@ Bit of a sensational title there, but I do think it's true. Believe it or not co
 
 I often see code like this in a project:
 
-{% highlight c# %}
+{% highlight csharp %}
 public class Vehicle
 {
     public string Registration { get; set; }

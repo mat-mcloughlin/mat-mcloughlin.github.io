@@ -15,19 +15,19 @@ In my previous post I spoke briefly about how to setup routes and handle route a
 
 Just as a refresher, a simple get method that returns a string, is defined as follows:
 
-```language-csharp
+{% highlight csharp %}
 Get["/"] = _ => {
     return "Hello World!"
 };
-```
+{% endhighlight %}
 
 To change this to return a view instead is easy. The `NancyModule` base class has a property of type `ViewRenderer` called `View`. This is like the Route handlers in that it is an indexer. It allows you to set the view you wish to return in a number of different ways. As a basic example:
 
-```language-csharp
+{% highlight csharp %}
 Get["/"] = _ => {
     return View["Hello.html"]
 };
-```
+{% endhighlight %}
 
 This will process and return a view in a file called `Hello.html`.
 
@@ -45,19 +45,19 @@ Now it is possible to change this convention, as it with everything in Nancy, bu
 
 The astute among you many have noticed I'm only returning some plain html. What if I want to return a view model as well. Nancy allows you to do this in two different ways. The first is to specify it as the second argument in the indexer:
 
-```language-csharp
+{% highlight csharp %}
 Get["/"] = _ => {
     return View["Hello.html", new HelloModel()]
 };
-```
+{% endhighlight %}
 
 and the second is a little bit more interesting. You can actually just specify the model:
 
-```language-csharp
+{% highlight csharp %}
 Get["/"] = _ => {
     return View[new HelloModel()]
 };
-```
+{% endhighlight %}
 
 If you do this Nancy will then attempt to find a view in a file called `Hello.html` (Removing the Model part) in the same fashion as above. I've got to be honest, I'm not a fan of this method. I'd much rather be explicit about the view and the model.
 
@@ -65,7 +65,7 @@ If you do this Nancy will then attempt to find a view in a file called `Hello.ht
 
 So returning a view is one thing. Chances are you want to do something dynamic with the view model though. Nancy ships with the Super Simple View Engine (I'm going to refer to this as SSVE from now on to save my [keystrokes](http://www.keysleft.com/)). This is, as the name would suggest, simple. If you are wanting to do anything remotely complicated I would recommend using Nancy's implementation of the Razor view engine. But just to show you an example of the syntax:
 
-```language-html
+{% highlight html %}
 <h1>Hello Turtles!</h1>
 <table border="1">
     <tr>
@@ -79,7 +79,7 @@ So returning a view is one thing. Chances are you want to do something dynamic w
     </tr>
     @EndEach
 </table>
-```
+{% endhighlight %}
 
 It has all the usual iterators and conditionals that you would expect. However, one thing to bear in mind is it cannot handle nested loops. So be aware.
 
