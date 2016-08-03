@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Talks
 date: '2014-04-26 15:23:26'
 ---

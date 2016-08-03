@@ -1,15 +1,40 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<section id="main" class="col-md-9 col-md-push-3">
+<article class="post {% if image %}has-post-image{% else %}no-post-image{% endif %}">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+    {% if page.image %}
+        <div class="post-image">
+            <img src="{{ page.image }}" alt="{{ page.title }}">
+            <time class="entry-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%d" }} <span>{{ page.date | date: "%b" }}</span></time>
+        </div><!-- /post-image -->
+    {% endif %}
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+    <div class="post_content">
+        <p class="metadata">{% for tag in page.tags %} <a href="/tag/{{ tag }}">" title="{{ tag }}" >#{{ tag }}</a> {% endfor %}</p>
+        
+        <h1 class="post-title">{{ page.title }}</h2>
 
+        
+        <hr>
+        <div class="entry">
+            {{ content }}
+
+            <div class="clearfix"></div>
+        </div>
+        
+        <div class="social-share">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}" class="facebook" data-toggle="tooltip" data-placement="left" title="Share"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/home?status={{ page.url | prepend: site.url }}" class="twitter" data-toggle="tooltip" data-placement="left" title="Share"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}" class="google" data-toggle="tooltip" data-placement="left" title="Share"><i class="fa fa-google-plus"></i></a>
+        </div>
+
+    </div><!-- /post_content -->
+
+    <div class="clearfix"></div>
 </article>
+</section>
+
+
+{% include sidebar.html %}
