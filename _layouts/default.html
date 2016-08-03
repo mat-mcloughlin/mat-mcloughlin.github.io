@@ -1,20 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  {% include head.html %}
+    <title>mat-mcloughlin</title>
+    <meta name="description" content=".Net developer and lover of javascript. I enjoy climbing and surfing (in cold water). I also like to talk about software. Powered by Beard." />
 
-  <body>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {% include header.html %}
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+    <link rel="stylesheet" type="text/css" href="{{ "/css/bootstrap.css" | prepend: site.baseurl }}" />
+    <link rel="stylesheet" type="text/css" href="{{ "/css/style.css" | prepend: site.baseurl }}" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700|Lora:400,700,400italic" />
+    <link rel="stylesheet" type="text/css" href="{{ "/css/prism.css" | prepend: site.baseurl }}" />
+</head>
+<body class="home-template  pace-done">
 
-    {% include footer.html %}
+    <div id="container" class="container">
+        <div class="row">
 
-  </body>
 
+            {{ content }}
+
+
+        </div><!-- /row -->
+    </div><!-- /container -->
+
+
+
+    <script>    
+        var social_icons = [
+            "http://www.twitter.com/mat_mcloughlin",
+            "https://github.com/mat-mcloughlin",
+            "https://uk.linkedin.com/in/matmcloughlin"
+        ];
+        
+        var disqus_shortname = 'invalidargblog';
+    </script>
+
+    <script type="text/javascript">
+    var main_url = "{{ site.baseurl }}";
+    </script>
+
+    <script type="text/javascript">  
+      if (typeof jQuery == 'undefined') {
+        document.write('<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></'+'script>');
+      }
+    </script>  
+    <script type="text/javascript" src="{{ "/js/modernizr.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/pace.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/instafeed.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/jquery.ghostHunter.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/script.js" | prepend: site.baseurl }}"></script>
+
+
+    <script type="text/javascript">
+    if ( typeof disqus_shortname !== 'undefined' ) {
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    }else{
+        jQuery(".comment_count").remove();
+    }
+    </script>
+
+    <script type="text/javascript" src="{{ "/js/prism.js" | prepend: site.baseurl }}"></script>
+
+</body>
 </html>

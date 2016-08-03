@@ -2,6 +2,7 @@
 layout: post
 title: Keeping a clean git history
 date: '2015-06-27 09:40:20'
+featured: true
 ---
 
 Is it just me?

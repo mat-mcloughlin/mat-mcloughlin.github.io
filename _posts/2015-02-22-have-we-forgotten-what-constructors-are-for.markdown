@@ -2,6 +2,7 @@
 layout: post
 title: Have we forgotten what constructors are for?
 date: '2015-02-22 16:35:32'
+featured: true
 ---
 
 Bit of a sensational title there, but I do think it's true. Believe it or not constructors are not just for injecting dependencies into a `Controller` or a `Service`. They actually serve another purpose as well. Making sure that we can't construct an object in an invalid state.

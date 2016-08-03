@@ -2,6 +2,8 @@
 layout: post
 title: DevDay Omnisharp Talk
 date: '2015-10-21 13:32:01'
+featured: true
+image: /content/images/2015/10/speaking-1.jpg
 ---
 
 Here's the recording of my session about Omnisharp that I gave at DevDay in Poland. The audience were great and I can honestly say it is one of the best conferences I've been to.
