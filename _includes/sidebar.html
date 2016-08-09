@@ -1,41 +1,44 @@
 <aside id="sidebar" class="col-md-3 col-md-pull-9">
 
-	{% include header.html %}
+    {% include header.html %}
 
-	{% include navigation.html %}
+    {% include navigation.html %}
 
-	<div class="widget widget_featured_posts">
-		<h4>Featured Posts</h4>
-		{% for post in site.posts %}
-		{% if post.featured %}
-		<div class="f_post {% unless post.image %}no-image{% endunless %}">
-			<a href="{{ post.url }}">
-				{% if post.image %}<img src="{{ post.image }}" alt="{{ post.title }}" />{% endif %}
-				<h5>{{ post.title }}</h5>
-			</a>
-		</div>
-		{% endif %}
-		{% endfor %}
+    <div class="widget widget_featured_posts">
+        <h4>Featured Posts</h4>
+        {% for post in site.posts %}
+        {% if post.featured %}
+        <div class="f_post {% unless post.image %}no-image{% endunless %}">
+            <a href="{{ post.url }}">
+                {% if post.image %}<img src="{{ post.image }}" alt="{{ post.title }}" />{% endif %}
+                <h5>{{ post.title }}</h5>
+            </a>
+        </div>
+        {% endif %}
+        {% endfor %}
 
-	</div><!-- /widget_featured_posts -->
-	<hr class="hr-small">
-	<div class="f_post" style="opacity:1; margin-top:1.875rem;">
-		<a href="https://mvp.microsoft.com">
-			<img style="opacity:1" src="/MVP.jpeg" alt="Dedicated to Paul Stack" />
-		</a>
-	</div>
+    </div><!-- /widget_featured_posts -->
+    <hr class="hr-small">
+    <div class="f_post" style="opacity:1; margin-top:1.875rem;">
+        <a href="https://mvp.microsoft.com">
+            <img style="opacity:1" src="/MVP.jpeg" alt="Dedicated to Paul Stack" />
+        </a>
+    </div>
 
-	<hr class="hr-small">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- blog -->
-	<ins class="adsbygoogle"
-		style="display:block"
-		data-ad-client="ca-pub-4122309596911538"
-		data-ad-slot="2182028808"
-		data-ad-format="auto"></ins>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	<p class="sub-footer">&copy; 2016 <a href="{{ site.url }}">{{ site.title }}</a></p>
+    <hr class="hr-small">
+    <div class="f_post" style="opacity:1; margin-top:1.875rem;">
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- blog -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4122309596911538"
+             data-ad-slot="2182028808"
+             data-ad-format="auto"></ins>
+        <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <p class="sub-footer">&copy; 2016 <a href="{{ site.url }}">{{ site.title }}</a></p>
 
 </aside><!-- /sidebar -->
