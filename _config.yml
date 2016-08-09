@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: mat mcloughlin
+title: Mat Mcloughlin
 email: mathew.mcloughlin@gmail.com
 description: .Net developer and lover of javascript. I enjoy climbing and surfing (in cold water). I also like to talk about software. Powered by Beard.
 baseurl: "" # the subpath of your site, e.g. /blog
