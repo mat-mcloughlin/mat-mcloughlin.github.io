@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Command Handlers
-image: 
+image: content/images/2016/8/flanborough.jpg
 tags:
 - patterns
 ---
