@@ -32,7 +32,7 @@ public class MissingMetaHeaderException : Exception
 
 Instead of throwing an `InvalidOperationException` or similar. The reason for doing this is so that it makes it easier to catch specific exception types within your code. But what happens if the exception you are throwing is a "human caught" exception (One that is passed all the way back to the user). 
 
-__In this scenario is there any point in creating a custom exception? I'm not so sure any more.__ Would it not just be better to use one of the standard exception types and make sure the message is clear enough to indicate what the problem is?
+__In this scenario is there any point in creating a custom exception?__ I'm not so sure any more. Would it not just be better to use one of the standard exception types and make sure the message is clear enough to indicate what the problem is?
 
 {% highlight csharp %}
 if (!message.Headers.ContainsKey("Meta"))
