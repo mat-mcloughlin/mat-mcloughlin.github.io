@@ -1,7 +1,7 @@
 ---
 layout: post
 title: When to use Custom Exceptions
-image: /content/images/2016/8/flanborough.jpg
+image: /content/images/2016/10/malmo.JPG
 tags:
 - patterns
 ---
