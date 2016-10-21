@@ -1,10 +1,11 @@
 ---
-published: false
 layout: post
+title: When to use Custom Exceptions
 image: /content/images/2016/8/flanborough.jpg
 tags:
-  - patterns
+- patterns
 ---
+
 A conversation I recently had on the (DDD-CQRS-ES)[http://ddd-cqrs-es.herokuapp.com/]) slack channel got me thinking about custom exceptions and when to use them. Up until this point I've always considered it best practice to define custom exception instead of using the the standard exceptions supplied by the dotnet framework.
 
 For example:
