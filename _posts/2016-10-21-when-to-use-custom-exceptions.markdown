@@ -37,7 +37,7 @@ __In this scenario is there any point in creating a custom exception?__ I'm not 
 {% highlight csharp %}
 if (!message.Headers.ContainsKey("Meta"))
 {
-   throw new Exception($"{e.GetType().FullName} is missing the meta header");
+   throw new NullReferenceException($"{e.GetType().FullName} is missing the meta header");
 }
 {% endhighlight %}
 
