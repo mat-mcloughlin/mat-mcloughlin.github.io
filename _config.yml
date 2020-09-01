@@ -20,9 +20,10 @@ plainwhite:
 
   # generate social links in footer
   social_links:
-    twitter: mat-mcLoughlin
+    twitter: mat_mcLoughlin
     github:  mat-mcloughlin
     linkedIn: in/matmcloughlin
+    analytics_id: UA-1746767-7
     #rss: rss
     #dribbble: jekyll
     #flickr:   jekyll
